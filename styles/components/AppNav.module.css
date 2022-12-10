@@ -1,0 +1,74 @@
+.nav {
+  display: flex;
+  height: 8rem;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 8rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 64px;
+  border-radius: 9999px;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0px 0px 0px 0.2em var(--gray12) !important;
+  -moz-box-shadow: inset 0px 0px 0px 0.2em var(--gray12) !important;
+  box-shadow: inset 0px 0px 0px 0.2em var(--gray12) !important;
+}
+
+.logo p {
+  font-weight: 900;
+  font-size: 1.8rem;
+  font-family: inherit;
+}
+
+.menu {
+  height: 36px;
+  width: 36px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: flex;
+    height: 5rem;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 2rem;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    border-radius: 9999px;
+    -webkit-box-shadow: inset 0px 0px 0px 0.2em var(--gray12) !important;
+    -moz-box-shadow: inset 0px 0px 0px 0.2em var(--gray12) !important;
+    box-shadow: inset 0px 0px 0px 0.2em var(--gray12) !important;
+  }
+
+  .logo p {
+    font-weight: 900;
+    font-size: 1.2rem;
+    font-family: inherit;
+  }
+
+  .menu {
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+  }
+}
