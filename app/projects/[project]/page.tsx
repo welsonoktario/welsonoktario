@@ -1,17 +1,17 @@
 import Image from 'next/image'
 import prisma from '../../../lib/prisma'
 
-async function getProject(id: number) {
+async function getProject(id: string) {
   const project = await prisma.project.findFirst({
-    where: { id: Number(id) },
+    where: { id },
   })
 
   return project
 }
 
-async function getGalleries(project: number) {
-  const galleries = await prisma.gallery.findMany({
-    where: { projectId: Number(project) },
+async function getGalleries(projectId: string) {
+  const galleries = await prisma.projectGallery.findMany({
+    where: { projectId },
     orderBy: {
       order: 'asc',
     },
@@ -24,7 +24,7 @@ export default async function Page({
   params,
   searchParams,
 }: {
-  params: { project: number }
+  params: { project: string }
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
   const [project, galleries] = await Promise.all([
@@ -38,14 +38,14 @@ export default async function Page({
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '300px auto',
+          gridTemplateColumns: '500px auto',
           width: '100%',
           gap: '1rem',
         }}
       >
         {galleries.map((gallery) => (
           <div
-            style={{ maxWidth: '300px', height: '500px', position: 'relative' }}
+            style={{ maxWidth: '500px', height: '500px', position: 'relative' }}
             key={`${project?.title}-${gallery.order}`}
           >
             <Image
